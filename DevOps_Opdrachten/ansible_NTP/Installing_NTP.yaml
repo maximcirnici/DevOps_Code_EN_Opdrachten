@@ -1,0 +1,17 @@
+---
+- hosts: webservers
+  tasks:
+      - name: Stopping container
+        command: docker stop ntp
+
+      - name: Removing container
+        command: docker rm ntp
+
+      - name: Chaning folder  
+        command: ./build.sh
+
+      - name: Starting build.sh 
+        command: bash ./build.sh
+
+      - name: Starting run.sh
+        command: bash /home/devasc/labs/devnet-src/ansible/ansible_NTP/run.sh

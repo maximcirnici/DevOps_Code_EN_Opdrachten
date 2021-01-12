@@ -1,0 +1,11 @@
+---
+- hosts: webservers
+  tasks:
+      - name: Stopping container
+        command: docker stop loginrunning
+
+      - name: Removing container
+        command: docker rm loginrunning
+
+      - name: Starting container
+        command: bash /home/devasc/labs/devnet-src/ansible/ansible_LoginPage/LoginPage_SQLite.sh
